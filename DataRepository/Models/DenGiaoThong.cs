@@ -16,7 +16,6 @@ namespace DataRepository
         public int Vang { get; set; }
         public int Xanh { get; set; }
         public int TrangThai { get; set; }
-        public int Id_KhuVuc { get; set; }
         public virtual KhuVuc KhuVuc { get; set; }
     }
 }
