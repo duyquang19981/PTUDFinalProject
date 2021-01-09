@@ -2,7 +2,7 @@
 
 API chức năng xem
 
-QUANG: {
+QUANG: [{
   link: 'https://localhost:44399/api/DenGiaoThong/2',
   data: {
     "$id": "1",
@@ -44,4 +44,24 @@ QUANG: {
     "Xanh": 42,
     "TrangThai": 1
   }
-},
+},{
+  "link": 'https://localhost:44399/api/KhuVuc/2',
+  "data" :{
+    "$id": "1",
+    "DenGiaoThongs": [
+      {
+        "$id": "2",
+        "KhuVuc": {
+          "$ref": "1"
+        },
+        "Id": 6,
+        "Do": 30,
+        "Vang": 30,
+        "Xanh": 30,
+        "TrangThai": 0
+      }
+    ],
+    "Id": 2,
+    "TenKhuVuc": "ha noi"
+  }
+}]
