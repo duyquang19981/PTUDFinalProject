@@ -1,23 +1,26 @@
 ﻿using DataRepository;
+using DataRepository.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace WebAPI.Controllers
 {
     public class ChuxeController : ApiController
     {
-    
+
         // GET: api/Chuxe
         public IEnumerable<Chuxe> Get()
         {
             GTVTContext context = new GTVTContext();
-            var lstChuxe = context.Database.SqlQuery<Chuxe>("exec sp_laychuxe").ToList();
+            var lstChuxe = context.Chuxes.ToList();
             return lstChuxe;
         }
 
@@ -26,10 +29,16 @@ namespace WebAPI.Controllers
         {
             GTVTContext context = new GTVTContext();
 
-            var cmdText = "sp_xemchuxe_theoid @Id = @id_param";
-            var sqlParams = new[]{
-            new SqlParameter("id_param", Id) };
-            var lstChuxe = context.Database.SqlQuery<Chuxe>(cmdText, sqlParams).ToList();
+            //var cmdText = "sp_xemchuxe_theoid @Id = @id_param";
+            //var sqlParams = new[]{
+            //new SqlParameter("id_param", Id) };
+            //var lstChuxe = context.Database.SqlQuery<Chuxe>(cmdText, sqlParams).ToList();
+            //return lstChuxe;
+            var lstChuxe = context.Chuxes
+                       .Where(a => a.ChuxeId == Id)
+                       .Include(a => a.Xes).Include(a => a.ChuxevaBanglais)
+                       .ToList();
+
             return lstChuxe;
         }
 
@@ -45,7 +54,7 @@ namespace WebAPI.Controllers
 
                     var message = Request.CreateResponse(HttpStatusCode.Created, chuxe);
                     message.Headers.Location = new Uri(Request.RequestUri +
-                        chuxe.Id.ToString());
+                        chuxe.ChuxeId.ToString());
 
                     return message;
                 }
@@ -63,7 +72,7 @@ namespace WebAPI.Controllers
             {
                 using (GTVTContext context = new GTVTContext())
                 {
-                    var entity = context.Chuxes.FirstOrDefault(e => e.Id == id);
+                    var entity = context.Chuxes.FirstOrDefault(e => e.ChuxeId == id);
                     if (entity == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound,
@@ -95,7 +104,7 @@ namespace WebAPI.Controllers
             {
                 using (GTVTContext context = new GTVTContext())
                 {
-                    var entity = context.Chuxes.FirstOrDefault(e => e.Id == id);
+                    var entity = context.Chuxes.FirstOrDefault(e => e.ChuxeId == id);
                     if (entity == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound,
@@ -115,7 +124,65 @@ namespace WebAPI.Controllers
             }
         }
 
+        //api/Chuxe/4/1
+        [HttpGet]
+        [Route("api/Chuxe/{ChuxeId}/{XeId}")]
+        public void InsertChuxeXe(int ChuxeId, int XeId)
+        {
+            using (GTVTContext context = new GTVTContext())
+            {
+                Chuxe chuxe = new Chuxe { ChuxeId = ChuxeId };
+                context.Chuxes.Add(chuxe);
+                context.Chuxes.Attach(chuxe);
 
+                Xe xe = new Xe { XeId = XeId };
+                context.Xes.Add(xe);
+                context.Xes.Attach(xe);
+
+                chuxe.Xes = new List<Xe>();
+                chuxe.Xes.Add(xe);
+                context.SaveChanges();
+
+
+            }
+        }
+
+        //api/ChuxeBanglai/4/1
+        [HttpGet]
+        [Route("api/ChuxeBanglai/{ChuxeId}/{BanglaiId}")]
+        public void InsertChuxeBanglai(int ChuxeId, int BanglaiId)
+        {
+            using (GTVTContext context = new GTVTContext())
+            {
+                var chuxe = new Chuxe { ChuxeId = ChuxeId };
+                //    context.Chuxes.Add(chuxe);
+                //    context.Chuxes.Attach(chuxe);
+
+                var banglai = new Banglai { BanglaiId = BanglaiId };
+                //    context.Banglais.Add(banglai);
+                //    context.Banglais.Attach(banglai);
+                var ChuxeBanglai = new ChuXevaBangLai
+                {
+                    ChuxeId = chuxe.ChuxeId,
+                    BanglaiId = banglai.BanglaiId
+                };
+
+                context.ChuXevaBangLais.Add(ChuxeBanglai);
+                context.SaveChanges();
+
+                //    chuxe.
+
+                //context.SaveChanges();
+                //GTVTContext context = new GTVTContext();
+                //var cmdText = "sp_ThemTaixeBanglai @ChuxeId, @BanglaiId";
+                //var sqlParams = new[]{
+                //new SqlParameter("ChuxeId", ChuxeId),
+                //new SqlParameter("BanglaiId", BanglaiId)};
+                //context.Database.SqlQuery<ChuXevaBangLai>(cmdText, sqlParams);
+                ////return lstChuxe;
+
+            }
+        }
 
 
     }

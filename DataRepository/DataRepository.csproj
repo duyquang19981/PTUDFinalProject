@@ -5,12 +5,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E40C71C8-2AB0-4B2A-B7ED-88895C5A7A7A}</ProjectGuid>
+    <ProjectGuid>{C92119BD-CADA-4241-8E0F-766C3E3C2F08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataRepository</RootNamespace>
     <AssemblyName>DataRepository</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -51,25 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GTVTContext.cs" />
-    <Compile Include="Migrations\202101071514243_delete-id-khuvuc.cs" />
-    <Compile Include="Migrations\202101071514243_delete-id-khuvuc.designer.cs">
-      <DependentUpon>202101071514243_delete-id-khuvuc.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DenGiaoThong.cs" />
-    <Compile Include="Models\KhuVuc.cs" />
+    <Compile Include="Models\Banglai.cs" />
+    <Compile Include="Models\Chuxe.cs" />
+    <Compile Include="GTVTContext.cs" />
+    <Compile Include="Models\ChuXevaBangLai.cs" />
+    <Compile Include="Models\Xe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101071514243_delete-id-khuvuc.resx">
-      <DependentUpon>202101071514243_delete-id-khuvuc.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

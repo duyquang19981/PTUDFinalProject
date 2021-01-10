@@ -2,6 +2,7 @@
 using DataRepository.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -13,28 +14,36 @@ namespace WebAPI.Controllers
 {
     public class XeController : ApiController
     {
-        //// GET: api/Banglai
+        //// GET: api/Xe
         public IEnumerable<Xe> Get()
         {
             GTVTContext context = new GTVTContext();
-            var lstXe = context.Database.SqlQuery<Xe>("sp_layxe").ToList();
+            var lstXe = context.Xes.ToList();
             return lstXe;
         }
 
-        //// GET: api/Banglai/5
+        //// GET: api/Xe/5
         public IEnumerable<Xe> Get(int id)
         {
             GTVTContext context = new GTVTContext();
 
-            var cmdText = "Exec sp_layxetheoid @Id = @id_param";
-            var sqlParams = new[]{
-            new SqlParameter("id_param", id) };
-            var lstXe = context.Database.SqlQuery<Xe>(cmdText, sqlParams).ToList();
+            //var cmdText = "Exec sp_layxetheoid @Id = @id_param";
+            //var sqlParams = new[]{
+            //new SqlParameter("id_param", id) };
+            //var lstXe = context.Database.SqlQuery<Xe>(cmdText, sqlParams).ToList();
+            //return lstXe;
+
+            var lstXe = context.Xes
+                       .Where(a => a.XeId == id)
+                       .Include(b => b.Chuxe)
+                       .ToList();
             return lstXe;
         }
 
 
-        // POST: api/Banglai
+
+
+        // POST: api/Xe
         public HttpResponseMessage Post([FromBody] Xe xe)
         {
             try
@@ -46,7 +55,7 @@ namespace WebAPI.Controllers
 
                     var message = Request.CreateResponse(HttpStatusCode.Created, xe);
                     message.Headers.Location = new Uri(Request.RequestUri +
-                        xe.Id.ToString());
+                        xe.XeId.ToString());
 
                     return message;
                 }
@@ -57,14 +66,14 @@ namespace WebAPI.Controllers
             }
         }
 
-        // PUT: api/Banglai/5
+        // PUT: api/Xe/5
         public HttpResponseMessage Put(int id, [FromBody] Xe xe)
         {
             try
             {
                 using (GTVTContext context = new GTVTContext())
                 {
-                    var entity = context.Xes.FirstOrDefault(e => e.Id == id);
+                    var entity = context.Xes.FirstOrDefault(e => e.XeId == id);
                     if (entity == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound,
@@ -91,14 +100,14 @@ namespace WebAPI.Controllers
             }
         }
 
-        // DELETE: api/Banglai/5
+        // DELETE: api/Xe/5
         public HttpResponseMessage Delete(int id)
         {
             try
             {
                 using (GTVTContext context = new GTVTContext())
                 {
-                    var entity = context.Xes.FirstOrDefault(e => e.Id == id);
+                    var entity = context.Xes.FirstOrDefault(e => e.XeId == id);
                     if (entity == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound,

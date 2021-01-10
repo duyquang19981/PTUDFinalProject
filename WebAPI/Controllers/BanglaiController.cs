@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         public IEnumerable<Banglai> Get()
         {
             GTVTContext context = new GTVTContext();
-            var lstBanglai = context.Database.SqlQuery<Banglai>("sp_laybanglai").ToList();
+            var lstBanglai = context.Banglais.ToList();
             return lstBanglai;
         }
 
@@ -26,10 +26,16 @@ namespace WebAPI.Controllers
         {
             GTVTContext context = new GTVTContext();
 
-            var cmdText = "Exec sp_laybanglai_id @Id = @name_param";
-            var sqlParams = new[]{
-            new SqlParameter("name_param", id) };
-            var lstBanglai = context.Database.SqlQuery<Banglai>(cmdText, sqlParams).ToList();
+            //var cmdText = "Exec sp_laybanglai_id @Id = @name_param";
+            //var sqlParams = new[]{
+            //new SqlParameter("name_param", id) };
+            //var lstBanglai = context.Database.SqlQuery<Banglai>(cmdText, sqlParams).ToList();
+            //return lstBanglai;
+
+            var lstBanglai = context.Banglais
+                      .Where(a => a.BanglaiId == id)
+                      .ToList();
+
             return lstBanglai;
         }
 
@@ -46,7 +52,7 @@ namespace WebAPI.Controllers
 
                     var message = Request.CreateResponse(HttpStatusCode.Created, banglai);
                     message.Headers.Location = new Uri(Request.RequestUri +
-                        banglai.Id.ToString());
+                        banglai.BanglaiId.ToString());
 
                     return message;
                 }
@@ -64,7 +70,7 @@ namespace WebAPI.Controllers
             {
                 using (GTVTContext context = new GTVTContext())
                 {
-                    var entity = context.Banglais.FirstOrDefault(e => e.Id == id);
+                    var entity = context.Banglais.FirstOrDefault(e => e.BanglaiId == id);
                     if (entity == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound,
@@ -94,7 +100,7 @@ namespace WebAPI.Controllers
             {
                 using (GTVTContext context = new GTVTContext())
                 {
-                    var entity = context.Banglais.FirstOrDefault(e => e.Id == id);
+                    var entity = context.Banglais.FirstOrDefault(e => e.BanglaiId == id);
                     if (entity == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound,

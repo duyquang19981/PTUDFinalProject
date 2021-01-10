@@ -12,10 +12,10 @@ namespace DataRepository.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int Id { get; set; }
+        public int BanglaiId { get; set; }
         [Required]
         public string LoaiBang { get; set; }
         public string ThongTin { get; set; }
-        public virtual ICollection<Chuxe> Chuxes { get; set; } = new HashSet<Chuxe>();
+        public ICollection<ChuXevaBangLai> ChuxevaBanglais { get; set; }
     }
 }

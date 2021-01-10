@@ -14,6 +14,5 @@ namespace WebAPI
             GlobalConfiguration.Configure(WebApiConfig.Register);
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
         }
-
     }
 }

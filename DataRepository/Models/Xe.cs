@@ -12,13 +12,14 @@ namespace DataRepository
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int Id { get; set; }
+        public int XeId { get; set; }
         public string BienSoXe { get; set; }
         public string Hang { get; set; }
         public string Loai { get; set; }
         public string MauSac { get; set; }
         public int Nam { get; set; }
         public string TrangThai { get; set; }
-        public virtual Chuxe Chuxe { get; set; }
+        public int ChuxeId { get;set; }
+        public Chuxe Chuxe { get; set; }
     }
 }

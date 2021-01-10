@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PTUDFinalProject.GTVTContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataRepository.GTVTContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(PTUDFinalProject.GTVTContext context)
+        protected override void Seed(DataRepository.GTVTContext context)
         {
             //  This method will be called after migrating to the latest version.
 

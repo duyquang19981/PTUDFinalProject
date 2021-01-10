@@ -13,14 +13,14 @@ namespace DataRepository
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int Id { get; set; }
+        public int ChuxeId { get; set; }
         [Required]
         public int CMND { get; set; }
         public string HoTen { get; set; }
         public string DiaChi { get; set; }
         public string GioiTinh { get; set; }
         public int NamSinh { get; set; }
-        public virtual ICollection<Xe> Xes { get; set; } = new HashSet<Xe>();
-        public virtual ICollection<Banglai> Banglais { get; set; } = new HashSet<Banglai>();
+        public ICollection<Xe> Xes { get; set; }
+        public ICollection<ChuXevaBangLai> ChuxevaBanglais { get; set; }
     }
 }
