@@ -1,0 +1,117 @@
+API CHỨC NĂNG XEM TÂT CẢ BÁO CÁO
+{
+  link:https://localhost:44399/api/BaoCao
+  data:{
+"$id": "1",
+"Id": 2,
+"NguoiViPham": 123456789,
+"DiaDiemPhat": "Nguyen Van Cu",
+"ThoiGianLap": "10/01/2021",
+"TienPhat": 100,
+"TinhTrangNopPhat": "Chua",
+"ViPhamLuatGTs": [
+{
+"$id": "2",
+"Id": 5,
+"Id_BaoCao": 2,
+"BaoCao": {
+"$ref": "1"
+},
+"Id_LuatGiaoThong": 8,
+"LuatGiaoThong": null
+},
+{
+"$id": "3",
+"Id": 6,
+"Id_BaoCao": 2,
+"BaoCao": {
+"$ref": "1"
+},
+"Id_LuatGiaoThong": 9,
+"LuatGiaoThong": null
+}
+]
+},
+{
+"$id": "4",
+"Id": 3,
+"NguoiViPham": 905123456,
+"DiaDiemPhat": "Linh Trung",
+"ThoiGianLap": "9/01/2021",
+"TienPhat": 100,
+"TinhTrangNopPhat": "Chua",
+"ViPhamLuatGTs": [
+{
+"$id": "5",
+"Id": 7,
+"Id_BaoCao": 3,
+"BaoCao": {
+"$ref": "4"
+},
+"Id_LuatGiaoThong": 10,
+"LuatGiaoThong": null
+}
+]
+},
+{
+"$id": "6",
+"Id": 4,
+"NguoiViPham": 285123647,
+"DiaDiemPhat": "Thu Duc",
+"ThoiGianLap": "8/01/2021",
+"TienPhat": 100,
+"TinhTrangNopPhat": "Roi",
+"ViPhamLuatGTs": [
+{
+"$id": "7",
+"Id": 8,
+"Id_BaoCao": 4,
+"BaoCao": {
+"$ref": "6"
+},
+"Id_LuatGiaoThong": 9,
+"LuatGiaoThong": null
+}
+]
+}
+}
+
+
+CHỨC NĂNG XEM BÁO CÁO CỦA 1 NGƯỜI THEO CMND (0123456789)
+KHANG
+
+{
+link:https://localhost:44399/api/BaoCao/0123456789
+data:
+{
+"$id": "1",
+"Id": 2,
+"NguoiViPham": 123456789,
+"DiaDiemPhat": "Nguyen Van Cu",
+"ThoiGianLap": "10/01/2021",
+"TienPhat": 100,
+"TinhTrangNopPhat": "Chua",
+"ViPhamLuatGTs": [
+{
+"$id": "2",
+"Id": 5,
+"Id_BaoCao": 2,
+"BaoCao": {
+"$ref": "1"
+},
+"Id_LuatGiaoThong": 8,
+"LuatGiaoThong": null
+},
+{
+"$id": "3",
+"Id": 6,
+"Id_BaoCao": 2,
+"BaoCao": {
+"$ref": "1"
+},
+"Id_LuatGiaoThong": 9,
+"LuatGiaoThong": null
+}
+]
+}
+}
