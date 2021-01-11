@@ -21,11 +21,13 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/LuatGiaoThong/5
-        public IEnumerable<LuatGiaoThong> Get(int id)
+        public LuatGiaoThong Get(int id)
         {
             GTVTContext context = new GTVTContext();
-            var lstLuatGiaoThong = context.LuatGiaoThongs.ToList();
-            yield return lstLuatGiaoThong[id - 1];
+            var LuatGiaoThong = context.LuatGiaoThongs
+                     .Where(b => b.Id == id)
+                     .FirstOrDefault();
+            return LuatGiaoThong;
         }
 
         // POST: api/LuatGiaoThong
