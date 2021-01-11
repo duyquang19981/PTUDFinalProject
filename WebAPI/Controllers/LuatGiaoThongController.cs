@@ -1,4 +1,6 @@
-﻿using ChucNang10;
+﻿using DataRepository;
+using DataRepository;
+using PTUDFinalProject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
