@@ -9,11 +9,17 @@ using System.Threading.Tasks;
 
 namespace DataRepository.Models
 {
-    public class TinhTrang
+
+    public class TinhTrang : IEquatable<TinhTrang>
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string TrangThai { get; set; }
-        public virtual ICollection<Duong> Duongs { get; set; } = new HashSet<Duong>();
+        public virtual ICollection<TinhTrangDuong> TinhTrangDuongs { get; set; } = new HashSet<TinhTrangDuong>();
+
+        public bool Equals(TinhTrang other)
+        {
+            return this.Id == other.Id;
+        }
     }
 }
