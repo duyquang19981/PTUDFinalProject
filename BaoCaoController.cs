@@ -1,4 +1,4 @@
-﻿using DataRepository;
+using DataRepository;
 using PTUDFinalProject;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
             return listReport;
         }
 
-        // GET: api/BaoCao/5
+        //GET: api/BaoCao/5
         public IEnumerable<BaoCao> Get(int id)
         {
             GTVTContext context = new GTVTContext();
@@ -28,52 +28,96 @@ namespace WebAPI.Controllers
             return listReport;
         }
 
+
+        //Xem chi tiet cac loi vi pham cua Bao cao
+        // GET: api/BaoCao/5/details
+        [Route("api/{idBaoCao}/details")]
+        [HttpGet]
+        public IEnumerable<LuatGiaoThong> GetDSViPham(int idBaoCao)
+        {
+            GTVTContext context = new GTVTContext();
+            var listLuatViPham = (from l in context.LuatGiaoThongs
+                                  join vp in context.ViPhamLuatGTs on l.Id equals vp.Id_LuatGiaoThong
+                                  where vp.Id_BaoCao == idBaoCao
+                                  select l
+                                  ).ToList();
+
+            return listLuatViPham;
+        }
+
+
         // POST: api/BaoCao
         //[HttpPost]
-        public IHttpActionResult Post(BaoCao bc, List<ViPhamLuatGT> dsViPham)
+        public IHttpActionResult Post(BaoCao baoCao)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            using (GTVTContext ctx = new GTVTContext())
+            using (var ctx = new GTVTContext())
             {
-                var baocao = bc;
-                bc.ViPhamLuatGTs = dsViPham;
-
-                ctx.BaoCaos.Add(baocao);
+                ctx.BaoCaos.Add(new BaoCao()
+                {
+                    NguoiViPham = baoCao.NguoiViPham,
+                    DiaDiemPhat = baoCao.DiaDiemPhat,
+                    ThoiGianLap = baoCao.ThoiGianLap,
+                    TienPhat = baoCao.TienPhat,
+                    TinhTrangNopPhat = "Chua"
+                });
                 ctx.SaveChanges();
             }
             return Ok();
         }
-        //public HttpResponseMessage Post([FromBody]BaoCao bcao)
-        //{
-        //    try
-        //    {
-        //        using (GTVTContext gTVTContext = new GTVTContext())
-        //        {
-        //            gTVTContext.BaoCaos.Add(bcao);
-        //            gTVTContext.SaveChanges();
-        //            var message = Request.CreateResponse(HttpStatusCode.Created, bcao);
-        //            message.Headers.Location = new Uri(Request.RequestUri + bcao.Id.ToString());
-        //            return message;
-        //        }    
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
-        //    }
-        //}
+
+        // Nho lam them chi tiet cac vi pham vao moi bao cao
 
         // PUT: api/BaoCao/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, BaoCao baoCao)
         {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+
+            using (var ctx = new GTVTContext())
+            {
+                var oldBaoCao = ctx.BaoCaos.Where(s => s.Id == id)
+                                                        .FirstOrDefault<BaoCao>();
+
+                if (oldBaoCao != null)
+                {
+                    oldBaoCao.NguoiViPham = baoCao.NguoiViPham;
+                    oldBaoCao.DiaDiemPhat = baoCao.DiaDiemPhat;
+                    oldBaoCao.ThoiGianLap = baoCao.ThoiGianLap;
+                    oldBaoCao.TienPhat = baoCao.TienPhat;
+                    oldBaoCao.TinhTrangNopPhat = baoCao.TinhTrangNopPhat;
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
         }
 
+
         // DELETE: api/BaoCao/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            if (id <= 0)
+                return BadRequest("Not a valid student id");
+
+            using (var ctx = new GTVTContext())
+            {
+                var deleteBaoCao = ctx.BaoCaos
+                    .Where(s => s.Id == id)
+                    .FirstOrDefault();
+
+                ctx.Entry(deleteBaoCao).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
+
+            return Ok();
         }
     }
 }
