@@ -24,6 +24,9 @@ namespace PTUDFinalProject
         public DbSet<BaoCao> BaoCaos { get; set; }
         public DbSet<LuatGiaoThong> LuatGiaoThongs { get; set; }
         public DbSet<ViPhamLuatGT> ViPhamLuatGTs { get; set; }
+        public virtual DbSet<Chuxe> Chuxes { get; set; }
+        public virtual DbSet<Xe> Xes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
           
