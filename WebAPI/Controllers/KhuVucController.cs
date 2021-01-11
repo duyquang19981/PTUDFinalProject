@@ -31,18 +31,70 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/KhuVuc
-        public void Post([FromBody] string value)
+        public IHttpActionResult Post(KhuVuc khuvuc)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            using (var ctx = new GTVTContext())
+            {
+                ctx.KhuVucs.Add(new KhuVuc()
+                {
+                    TenKhuVuc = khuvuc.TenKhuVuc,
+                   
+                });
+                //ctx.KhuVucs.Add(khuvuc);
+                ctx.SaveChanges();
+            }
+            return Ok();
+
+
         }
 
         // PUT: api/KhuVuc/5
-        public void Put(int id, [FromBody] string value)
+        public IHttpActionResult Put(int id, KhuVuc khuVuc)
         {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+
+            using (var ctx = new GTVTContext())
+            {
+                var existingKhuVuc = ctx.KhuVucs.Where(s => s.Id == id)
+                                                        .FirstOrDefault<KhuVuc>();
+
+                if (existingKhuVuc != null)
+                {
+                    existingKhuVuc.TenKhuVuc = khuVuc.TenKhuVuc;
+                   
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return Ok();
         }
 
         // DELETE: api/KhuVuc/5
-        public void Delete(int id)
-        {
-        }
+        //public IHttpActionResult Delete(int id)
+        //{
+        //    if (id <= 0)
+        //        return BadRequest("Not a valid student id");
+
+        //    using (var ctx = new GTVTContext())
+        //    {
+        //        var KhuVuc = ctx.KhuVucs
+        //            .Where(s => s.Id == id)
+        //            .FirstOrDefault();
+
+        //        ctx.Entry(KhuVuc).State = System.Data.Entity.EntityState.Deleted;
+        //        ctx.SaveChanges();
+        //    }
+
+        //    return Ok();
+        //}
     }
 }

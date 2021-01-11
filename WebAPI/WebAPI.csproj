@@ -93,7 +93,9 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DenGiaoThongController.cs" />
+    <Compile Include="Controllers\DenGT_ThayDoiController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
+    <Compile Include="Controllers\NguoiQuanLyGTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -19,6 +19,7 @@ namespace DataRepository
         public int Xanh { get; set; }
         public int TrangThai { get; set; }
         public string TenDuong { get; set; }
+        public int? KhuVuc_Id { set; get; }
         public virtual KhuVuc KhuVuc { get; set; }
         public virtual ICollection<DenGT_ThayDoi> DenGT_ThayDois { get; set; } = new HashSet<DenGT_ThayDoi>();
     }
