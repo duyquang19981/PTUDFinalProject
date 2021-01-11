@@ -54,14 +54,14 @@ namespace WebAPI.Controllers
         }
 
         // PUT: api/KhuVuc/5
-        public IHttpActionResult Put(KhuVuc khuVuc)
+        public IHttpActionResult Put(int id, KhuVuc khuVuc)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
             using (var ctx = new GTVTContext())
             {
-                var existingKhuVuc = ctx.KhuVucs.Where(s => s.Id == khuVuc.Id)
+                var existingKhuVuc = ctx.KhuVucs.Where(s => s.Id == id)
                                                         .FirstOrDefault<KhuVuc>();
 
                 if (existingKhuVuc != null)

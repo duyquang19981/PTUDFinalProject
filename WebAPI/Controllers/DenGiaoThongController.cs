@@ -11,6 +11,7 @@ namespace WebAPI.Controllers
 {
     public class DenGiaoThongController : ApiController
     {
+        // main git 
         // GET: api/DenGiaoThong
         public IEnumerable<DenGiaoThong> Get()
         {
@@ -57,20 +58,20 @@ namespace WebAPI.Controllers
         }
 
         // PUT: api/DenGiaoThong/5
-        public IHttpActionResult Put(DenGiaoThong denGiaoThong)
+        public IHttpActionResult Put(int id, DenGiaoThong denGiaoThong)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
             using (var ctx = new GTVTContext())
             {
-                var existingDenGiaoThong = ctx.DenGiaoThongs.Where(s => s.Id == denGiaoThong.Id)
+                var existingDenGiaoThong = ctx.DenGiaoThongs.Where(s => s.Id == id)
                                                         .FirstOrDefault<DenGiaoThong>();
 
                 if (existingDenGiaoThong != null)
                 {
                     existingDenGiaoThong.Do = denGiaoThong.Do;
-                    existingDenGiaoThong.Vang = denGiaoThong.Xanh;
+                    existingDenGiaoThong.Vang = denGiaoThong.Vang;
                     existingDenGiaoThong.Xanh = denGiaoThong.Xanh;
                     existingDenGiaoThong.TrangThai = denGiaoThong.TrangThai;
                     existingDenGiaoThong.KhuVuc_Id = denGiaoThong.KhuVuc_Id;
