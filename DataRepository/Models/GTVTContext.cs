@@ -15,7 +15,6 @@ namespace ChucNang10
         {
         
         }
-
         public virtual DbSet<LuatGiaoThong> LuatGiaoThongs { get; set; }
 
     }

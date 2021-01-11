@@ -11,7 +11,6 @@ namespace ChucNang10
     public class LuatGiaoThong
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
         public int Id { get; set; }
         public string NoiDungLuat { get; set; }
         public int LanCapNhat { get; set; }

@@ -29,16 +29,19 @@ namespace WebAPI.Controllers
         // POST: api/LuatGiaoThong
         public void Post([FromBody]string value)
         {
+
         }
 
         // PUT: api/LuatGiaoThong/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/LuatGiaoThong/5
         public void Delete(int id)
         {
+            
         }
     }
 }
