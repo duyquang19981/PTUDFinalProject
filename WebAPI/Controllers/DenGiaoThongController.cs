@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         {
             GTVTContext context = new GTVTContext();
             var lstDenGiaoThong = context.DenGiaoThongs.ToList();
-            return lstDenGiaoThong;
+            return  lstDenGiaoThong;
 
         }
 
@@ -47,7 +47,8 @@ namespace WebAPI.Controllers
                     Xanh = denGiaoThong.Xanh,
                     Vang = denGiaoThong.Vang,
                     TrangThai = denGiaoThong.TrangThai,
-                    KhuVuc_Id = denGiaoThong.KhuVuc_Id
+                    KhuVuc_Id = denGiaoThong.KhuVuc_Id,
+                    TenDuong = denGiaoThong.TenDuong
                 });
                 //ctx.DenGiaoThongs.Add(denGiaoThong);
                 ctx.SaveChanges();
@@ -74,7 +75,8 @@ namespace WebAPI.Controllers
                     existingDenGiaoThong.Vang = denGiaoThong.Vang;
                     existingDenGiaoThong.Xanh = denGiaoThong.Xanh;
                     existingDenGiaoThong.TrangThai = denGiaoThong.TrangThai;
-                    existingDenGiaoThong.KhuVuc_Id = denGiaoThong.KhuVuc_Id;
+                    //existingDenGiaoThong.KhuVuc_Id = denGiaoThong.KhuVuc_Id;
+                    existingDenGiaoThong.TenDuong = denGiaoThong.TenDuong;
                     ctx.SaveChanges();
                 }
                 else

@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>PHẦN MỀM QUẢN LÝ BÁN HÀNG</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<style>
+body {
+    color: #404E67;
+    background: #F5F7FA;
+    font-family: 'Open Sans', sans-serif;
+}
+header {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(75, 74, 74, 0.7) ), url('route/img/banner.png');
+    height: 150px;
+    background-color: rgb(24, 24, 24);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: 0px -10px; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.table-wrapper {
+    width: 700px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;	
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+}
+.table-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+.table-title .add-new {
+    float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+}
+.table-title .add-new i {
+    margin-right: 4px;
+}
+table.table {
+    table-layout: fixed;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table th:last-child {
+    width: 100px;
+}
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}    
+table.table td a.add {
+    color: #27C46B;
+}
+table.table td a.edit {
+    color: #FFC107;
+}
+table.table td a.delete {
+    color: #E34724;
+}
+table.table td i {
+    font-size: 19px;
+}
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}    
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+table.table .form-control.error {
+    border-color: #f50000;
+}
+table.table td .add {
+    display: none;
+}
+.logo{
+    height: 130px;
+}
+.header-title{
+    margin-left: 90px;
+    font-size: 37px;
+    font-weight: 600;
+    color: #ffffff;
+}
+.func-img{
+   max-width: 100px;
+}
+.function-row>a:link, .function-row>a:visited {
+    border-radius: 15px;
+    background-color: #90918bb2;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.function-row>a:hover, .function-row>a:active {
+  background-color: rgb(223, 39, 69);
+}
+.content{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.function-row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.function{
+    width: 480px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+}
+.func-name{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.logo-link{
+
+}
+.border{
+    border-radius: 50px;
+}
+</style>
+
+</head>
+<body>
+    <header style="padding: 0px 80px;">
+        <div> <a class = "logo-link" href="index.html"> <img src="route/img/logo-khtn.png" alt="logo" class="logo"></a> </div>
+        <div class="header-title">
+            HỆ THỐNG QUẢN LÝ GIAO THÔNG VẬN TẢI
+        </div>
+    </header>
+    <div class="container content">
+        <div style="font-size: 35px ; font-weight: 500;margin-bottom: 20px;">CHỨC NĂNG:</div>
+        
+        
+        <div class="row function-row">
+            <a href="#">
+                <div class="function">
+                    <img src="route/img/traficlight.png" alt="hinh-anh" class="func-img border">
+                    <span class = "func-name">ĐIỀU KHIỂN GIAO THÔNG</span> 
+                </div>
+            </a>
+        </div>
+    </div>      
+    <div class="container content">
+        <div style="font-size: 35px ; font-weight: 500;margin-bottom: 20px;">QUẢN LÍ DỮ LIỆU:</div>
+        
+        <div class="row function-row">
+            <a href="route/quanlydengiaothong.html">
+                <div class="function">
+                    <img src="route/img/contract.png" alt="hinh-anh" class="func-img">
+                    <span class = "func-name">QUẢN LÝ ĐÈN GIAO THÔNG</span> 
+                </div>
+            </a>
+            <a href="#">
+                <div class="function">
+                    <img src="route/img/contract.png" alt="hinh-anh" class="func-img">
+                    <span class = "func-name">QUẢN LÝ </span> 
+                </div>
+            </a>
+        </div>
+        <div class="row function-row">
+            <a href="#">
+                <div class="function">
+                    <img src="route/img/contract.png" alt="hinh-anh" class="func-img">
+                    <span class = "func-name">QUẢN LÝ </span> 
+                </div>
+            </a>
+            
+        </div>
+        
+    </div> 
+</body>
+</html>
