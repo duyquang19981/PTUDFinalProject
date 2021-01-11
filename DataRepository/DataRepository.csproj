@@ -52,33 +52,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GTVTContext.cs" />
-    <Compile Include="Migrations\202101071514243_delete-id-khuvuc.cs" />
-    <Compile Include="Migrations\202101071514243_delete-id-khuvuc.designer.cs">
-      <DependentUpon>202101071514243_delete-id-khuvuc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101092214080_dieu-khien-GT.cs" />
-    <Compile Include="Migrations\202101092214080_dieu-khien-GT.designer.cs">
-      <DependentUpon>202101092214080_dieu-khien-GT.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaoCao.cs" />
     <Compile Include="Models\DenGiaoThong.cs" />
     <Compile Include="Models\DenGT_ThayDoi.cs" />
     <Compile Include="Models\KhuVuc.cs" />
+    <Compile Include="Models\LuatGiaoThong.cs" />
     <Compile Include="Models\NguoiQuanLyGT.cs" />
+    <Compile Include="Models\ViPhamLuatGT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101071514243_delete-id-khuvuc.resx">
-      <DependentUpon>202101071514243_delete-id-khuvuc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101092214080_dieu-khien-GT.resx">
-      <DependentUpon>202101092214080_dieu-khien-GT.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
