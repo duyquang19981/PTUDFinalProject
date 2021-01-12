@@ -15,7 +15,10 @@ namespace DataRepository.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime ThoiGian { get; set; }
-
+        public int? TinhTrang_Id { set; get; }
+        public virtual TinhTrang TinhTrang { get; set; }
+        public int? Duong_Id { set; get; }
+        public virtual Duong Duong { get; set; }
         public bool Equals(TinhTrangDuong other)
         {
             throw new NotImplementedException();

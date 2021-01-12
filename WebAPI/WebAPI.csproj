@@ -92,7 +92,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BanglaiController.cs" />
+    <Compile Include="Controllers\BaoCaoController.cs" />
+    <Compile Include="Controllers\ChuxeController.cs" />
     <Compile Include="Controllers\DenGiaoThongController.cs" />
+    <Compile Include="Controllers\DenGT_ThayDoiController.cs" />
+    <Compile Include="Controllers\DuongController.cs" />
+    <Compile Include="Controllers\KhuVucController.cs" />
+    <Compile Include="Controllers\LuatGiaoThongController.cs" />
+    <Compile Include="Controllers\NguoiQuanLyGTController.cs" />
+    <Compile Include="Controllers\TinhTrangDuongController.cs" />
+    <Compile Include="Controllers\XeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

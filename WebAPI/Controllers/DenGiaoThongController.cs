@@ -11,6 +11,7 @@ namespace WebAPI.Controllers
 {
     public class DenGiaoThongController : ApiController
     {
+        // main git 
         // GET: api/DenGiaoThong
         public IEnumerable<DenGiaoThong> Get()
         {
@@ -21,24 +22,88 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/DenGiaoThong/5
-        public string Get(int id)
+        public DenGiaoThong Get(int id)
         {
-            return "value";
+            GTVTContext context = new GTVTContext();
+            var DenGiaoThong = context.DenGiaoThongs
+                     .Where(b => b.Id == id)
+                     .FirstOrDefault();
+            return DenGiaoThong;
         }
 
         // POST: api/DenGiaoThong
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post(DenGiaoThong denGiaoThong)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            using (var ctx = new GTVTContext())
+            {
+                ctx.DenGiaoThongs.Add(new DenGiaoThong()
+                {
+                    Do = denGiaoThong.Do,
+                    Xanh = denGiaoThong.Xanh,
+                    Vang = denGiaoThong.Vang,
+                    TrangThai = denGiaoThong.TrangThai,
+                    KhuVuc_Id = denGiaoThong.KhuVuc_Id
+                });
+                //ctx.DenGiaoThongs.Add(denGiaoThong);
+                ctx.SaveChanges();
+            }
+            return Ok();
+
+
         }
 
         // PUT: api/DenGiaoThong/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, DenGiaoThong denGiaoThong)
         {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+
+            using (var ctx = new GTVTContext())
+            {
+                var existingDenGiaoThong = ctx.DenGiaoThongs.Where(s => s.Id == id)
+                                                        .FirstOrDefault<DenGiaoThong>();
+
+                if (existingDenGiaoThong != null)
+                {
+                    existingDenGiaoThong.Do = denGiaoThong.Do;
+                    existingDenGiaoThong.Vang = denGiaoThong.Vang;
+                    existingDenGiaoThong.Xanh = denGiaoThong.Xanh;
+                    existingDenGiaoThong.TrangThai = denGiaoThong.TrangThai;
+                    existingDenGiaoThong.KhuVuc_Id = denGiaoThong.KhuVuc_Id;
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+            return Ok();
         }
 
         // DELETE: api/DenGiaoThong/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            if (id <= 0)
+                return BadRequest("Not a valid student id");
+
+            using (var ctx = new GTVTContext())
+            {
+                var DenGiaoThong = ctx.DenGiaoThongs
+                    .Where(s => s.Id == id)
+                    .FirstOrDefault();
+
+                ctx.Entry(DenGiaoThong).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
+
+            return Ok();
         }
+
     }
 }
