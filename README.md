@@ -2,6 +2,7 @@
 
 API chức năng xem
 
+<<<<<<< Updated upstream
 QUANG: [{
   link: 'https://localhost:44399/api/DenGiaoThong/2',
   data: {
@@ -186,6 +187,10 @@ data:
 }
 YEN: {
   link: 'http://localhost:64714/api/Xe/1',
+=======
+YEN: [{
+  link: 'http://localhost:64714/api/XeViPham/1',
+>>>>>>> Stashed changes
   data: {
     [{"$id":"1","Chuxe":{"$id":"2","Xes":[{"$ref":"1"}],"Id":1,"CMND":2000,"HoTen":"Vu Thi Hai Yen","DiaChi":"235B Nguyen Van Cu, quan 1","GioiTinh":"Nu","NamSinh":1999},"Id":1,"BienSoXe":"51B-70000","Hang":"Vision","Loai":"Tay ga","MauSac":"Do","Nam":2020,"TrangThai":"Khong"}]}
 =======

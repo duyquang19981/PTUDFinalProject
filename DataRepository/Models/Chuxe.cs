@@ -21,8 +21,12 @@ namespace DataRepository
         public string DiaChi { get; set; }
         public string GioiTinh { get; set; }
         public int NamSinh { get; set; }
+<<<<<<< Updated upstream
         public virtual ICollection<Xe> Xes { get; set; } = new HashSet<Xe>();
         public ICollection<ChuXevaBangLai> ChuxevaBanglais { get; set; }
+=======
+        public virtual ICollection<XeViPham> XeViPhams { get; set; } = new HashSet<XeViPham>();
+>>>>>>> Stashed changes
 
     }
 }
