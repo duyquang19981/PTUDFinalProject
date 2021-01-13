@@ -12,16 +12,10 @@ namespace PTUDFinalProject.Models
 {
     public class KhuVuc
     {
-
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string TenKhuVuc { get; set; }
         public virtual ICollection<DenGiaoThong> DenGiaoThongs { get; set; } = new HashSet<DenGiaoThong>();
-        public virtual ICollection<Duong> Duongs { get; set; } = new HashSet<Duong>();
-
-        public bool Equals(KhuVuc other)
-        {
-            return this.Id == other.Id;
-        }
+        public virtual ICollection<TinhTrangDuong> TinhTrangDuongs { get; set; } = new HashSet<TinhTrangDuong>();
     }
 }

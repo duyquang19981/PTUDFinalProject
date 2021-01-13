@@ -97,7 +97,6 @@
     <Compile Include="Controllers\ChuxeController.cs" />
     <Compile Include="Controllers\DenGiaoThongController.cs" />
     <Compile Include="Controllers\DenGT_ThayDoiController.cs" />
-    <Compile Include="Controllers\DuongController.cs" />
     <Compile Include="Controllers\KhuVucController.cs" />
     <Compile Include="Controllers\LuatGiaoThongController.cs" />
     <Compile Include="Controllers\NguoiQuanLyGTController.cs" />

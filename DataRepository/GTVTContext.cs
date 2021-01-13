@@ -28,9 +28,8 @@ namespace PTUDFinalProject
         public virtual DbSet<Xe> Xes { get; set; }
         public virtual DbSet<Banglai> Banglais { get; set; }
         public DbSet<ChuXevaBangLai> ChuXevaBangLais { get; set; }
-        public DbSet<Duong> Duongs { get; set; }
-        public DbSet<TinhTrang> TinhTrangs { get; set; }
         public DbSet<TinhTrangDuong> TinhTrangDuongs { get; set; }
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -74,15 +73,11 @@ namespace PTUDFinalProject
             //Nhu
             
             modelBuilder.Entity<TinhTrangDuong>()
-            .HasRequired<TinhTrang>(s => s.TinhTrang)
-            .WithMany(g => g.TinhTrangDuongs)
-            .HasForeignKey<int?>(s => s.TinhTrang_Id);
-            // Nhu
-            modelBuilder.Entity<TinhTrangDuong>()
-           .HasRequired<Duong>(s => s.Duong)
+           .HasRequired<KhuVuc>(s => s.KhuVuc)
            .WithMany(g => g.TinhTrangDuongs)
-           .HasForeignKey<int?>(s => s.Duong_Id);
-            
+           .HasForeignKey<int?>(s => s.KhuVuc_Id);
+                          
+        
         }
     }
 }

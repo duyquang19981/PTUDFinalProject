@@ -2,6 +2,7 @@
 using PTUDFinalProject;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -19,8 +20,19 @@ namespace WebAPI.Controllers
             return lstTinhTrangDuong;
 
         }
-        
+
         // GET: api/TinhTrangDuong/5
+        /*
+           public IEnumerable<TinhTrangDuong> Get(int id)
+        {
+            GTVTContext context = new GTVTContext();
+                      var lstTinhTrangDuong = context.TinhTrangDuongs
+                       .Where(x => x.KhuVuc_Id == id)
+                       .Include(b => b.TrangThai)
+                       .ToList();
+            return lstTinhTrangDuong;
+        }
+        */
         public TinhTrangDuong Get(int id)
         {
             GTVTContext context = new GTVTContext();
@@ -41,11 +53,11 @@ namespace WebAPI.Controllers
             {
                 ctx.TinhTrangDuongs.Add(new TinhTrangDuong()
                 {
-                    Duong_Id =tinhTrangDuong.Duong_Id,
-                    TinhTrang_Id = tinhTrangDuong.TinhTrang_Id,
-                    ThoiGian=tinhTrangDuong.ThoiGian,
+                    KhuVuc_Id= tinhTrangDuong.KhuVuc_Id,
+                    TenDuong=tinhTrangDuong.TenDuong,
+                    TrangThai=tinhTrangDuong.TrangThai                    
                 });
-                //ctx.TinhTrangDuongs.Add(denGiaoThong);
+                //ctx.TinhTrangDuongs.Add(tinhTrangDuong);
                 ctx.SaveChanges();
             }
             return Ok();
@@ -64,9 +76,9 @@ namespace WebAPI.Controllers
 
                 if (existingTinhTrangDuong != null)
                 {
-                    existingTinhTrangDuong.Duong_Id = tinhTrangDuong.Duong_Id;
-                    existingTinhTrangDuong.TinhTrang_Id = tinhTrangDuong.TinhTrang_Id;
-                    existingTinhTrangDuong.ThoiGian = tinhTrangDuong.ThoiGian;
+                    existingTinhTrangDuong.KhuVuc_Id = tinhTrangDuong.KhuVuc_Id;
+                    existingTinhTrangDuong.TenDuong = tinhTrangDuong.TenDuong;
+                    existingTinhTrangDuong.TrangThai = tinhTrangDuong.TrangThai;
                         
                     ctx.SaveChanges();
                 }

@@ -9,19 +9,13 @@ using System.Threading.Tasks;
 
 namespace DataRepository.Models
 {
-
-    public class TinhTrangDuong : IEquatable<TinhTrangDuong>
+    public class TinhTrangDuong
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public DateTime ThoiGian { get; set; }
-        public int? TinhTrang_Id { set; get; }
-        public virtual TinhTrang TinhTrang { get; set; }
-        public int? Duong_Id { set; get; }
-        public virtual Duong Duong { get; set; }
-        public bool Equals(TinhTrangDuong other)
-        {
-            throw new NotImplementedException();
-        }
+        public string TenDuong { get; set; }
+        public string TrangThai { get; set; }
+        public int? KhuVuc_Id { set; get; }
+        public virtual KhuVuc KhuVuc { get; set; }
     }
 }

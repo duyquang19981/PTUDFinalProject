@@ -59,12 +59,10 @@
     <Compile Include="Models\ChuXevaBangLai.cs" />
     <Compile Include="Models\DenGiaoThong.cs" />
     <Compile Include="Models\DenGT_ThayDoi.cs" />
-    <Compile Include="Models\Duong.cs" />
+    <Compile Include="Models\TinhTrangDuong.cs" />
     <Compile Include="Models\KhuVuc.cs" />
     <Compile Include="Models\LuatGiaoThong.cs" />
     <Compile Include="Models\NguoiQuanLyGT.cs" />
-    <Compile Include="Models\TinhTrang.cs" />
-    <Compile Include="Models\TinhTrangDuong.cs" />
     <Compile Include="Models\ViPhamLuatGT.cs" />
     <Compile Include="Models\Xe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
