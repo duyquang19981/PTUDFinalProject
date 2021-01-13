@@ -17,13 +17,13 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/XeViPham/5
-        public XeViPham Get(int id)
+        public Xe Get(int id)
         {
             GTVTContext context = new GTVTContext();
-            var XeViPham = context.XeViPhams
+            var Xe = context.Xes
                      .Where(b => b.XeId == id)
                      .FirstOrDefault();
-            return XeViPham;
+            return Xe;
         }
 
         // POST: api/XeViPham
