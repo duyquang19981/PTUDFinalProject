@@ -126,5 +126,22 @@ namespace WebAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
+
+        //api/BamBienSoXe/1
+        [HttpGet]
+        [Route("api/BamBienSoXe/{XeId}")]
+        public void BamBienSoXe(int XeId)
+        {
+            GTVTContext context = new GTVTContext();
+
+            var cmdText = "Exec nhap_bien_so @id = @name_param";
+            var sqlParams = new[]{
+            new SqlParameter("name_param", XeId) };
+            context.Database.SqlQuery<Xe>(cmdText, sqlParams);
+            context.SaveChanges();
+
+
+
+        }
     }
 }

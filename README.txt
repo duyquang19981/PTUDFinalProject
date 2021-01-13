@@ -17,3 +17,8 @@
 /api/Xe/2
 [{"$id":"1","XeId":2,"BienSoXe":"12345","Hang":"Honda","Loai":"Vison","MauSac":"Den","Nam":2020,"TrangThai":"Hoan tat","ChuxeId":1,"Chuxe":{"$id":"2","ChuxeId":1,"CMND":123456789,"HoTen":"Quang Huy","DiaChi":"Bien Hoa","GioiTinh":"Nam","NamSinh":1999,"Xes":[{"$ref":"1"}],"ChuxevaBanglais":null}}]
 >>>>>>> Stashed changes
+
+-- Bam bien so xe
+-- Chay function va procedure BamBienSoXe.sql truoc, sau do moi chay controller
+/api/BamBienSoXe/1
+
