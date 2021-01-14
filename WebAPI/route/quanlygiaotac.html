@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Quản lý đèn giao thông</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- JS, Popper.js, and jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!-- axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="./css/style.css">
+<style>
+
+</style>
+<script src="js/function.js"></script>
+<script src="js/QLGiaoTacScript.js" ></script>
+</head>
+<body>
+    <header style="padding: 0px 70px;">
+        <div> <a class = "logo-link" href="../index.html"> <img src="img/logo-khtn.png" alt="logo" class="logo"></a> </div>
+        <div class="header-title">
+            HỆ THỐNG QUẢN LÝ GIAO THÔNG VẬN TẢI
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div style="font-size: 38px; font-weight: 500; margin: 50px auto;  text-align: center; "> <span style="display: inline-block;">QUẢN LÝ GIAO TÁC</span></div>
+        <div style="margin-left:125px" ><a href="../index.html"><button class="btn btn-lg btn-warning">Quay về</button></a> </div>
+       
+        
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>Giao tác<b></b></h2></div>
+                        
+                    </div>
+                </div>
+                <table class="table table-bordered table-nhanvien">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Thời điểm thay đổi</th>
+                            <th>Thời gian thay đổi</th>
+                            <th>Do_TD</th>
+                            <th>Vang_TD</th>
+                            <th>Xanh_TD</th>
+                            <th>Tự động</th>
+                            <th>Thời gian thực hiện</th>
+                            <th>Đèn giao thông</th>
+                            <th>Người quản lý</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "table-body">
+                        
+                    </tbody>
+                    
+                </table>
+            
+                <a id="end-of-table"></a>
+            </div>
+        </div>
+        
+    </div>     
+</body>
+</html>
