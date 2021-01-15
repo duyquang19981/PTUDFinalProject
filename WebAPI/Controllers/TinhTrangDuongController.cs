@@ -21,18 +21,6 @@ namespace WebAPI.Controllers
 
         }
 
-        // GET: api/TinhTrangDuong/5
-        /*
-           public IEnumerable<TinhTrangDuong> Get(int id)
-        {
-            GTVTContext context = new GTVTContext();
-                      var lstTinhTrangDuong = context.TinhTrangDuongs
-                       .Where(x => x.KhuVuc_Id == id)
-                       .Include(b => b.TrangThai)
-                       .ToList();
-            return lstTinhTrangDuong;
-        }
-        */
         public TinhTrangDuong Get(int id)
         {
             GTVTContext context = new GTVTContext();
