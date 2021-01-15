@@ -52,13 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GTVTContext.cs" />
-    <Compile Include="Migrations\202101071514243_delete-id-khuvuc.cs" />
-    <Compile Include="Migrations\202101071514243_delete-id-khuvuc.designer.cs">
-      <DependentUpon>202101071514243_delete-id-khuvuc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101092214080_dieu-khien-GT.cs" />
-    <Compile Include="Migrations\202101092214080_dieu-khien-GT.designer.cs">
-      <DependentUpon>202101092214080_dieu-khien-GT.cs</DependentUpon>
+    <Compile Include="Migrations\202101110500422_update-dkgt-db.cs" />
+    <Compile Include="Migrations\202101110500422_update-dkgt-db.designer.cs">
+      
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DenGiaoThong.cs" />
@@ -72,11 +68,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101071514243_delete-id-khuvuc.resx">
-      <DependentUpon>202101071514243_delete-id-khuvuc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101092214080_dieu-khien-GT.resx">
-      <DependentUpon>202101092214080_dieu-khien-GT.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101110500422_update-dkgt-db.resx">
+      <DependentUpon>202101110500422_update-dkgt-db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
