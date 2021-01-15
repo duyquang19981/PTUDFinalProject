@@ -28,6 +28,8 @@ namespace PTUDFinalProject
         public virtual DbSet<Xe> Xes { get; set; }
         public virtual DbSet<Banglai> Banglais { get; set; }
         public DbSet<ChuXevaBangLai> ChuXevaBangLais { get; set; }
+        public DbSet<TinhTrangDuong> TinhTrangDuongs { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -68,6 +70,12 @@ namespace PTUDFinalProject
             modelBuilder.Entity<ChuXevaBangLai>()
                 .HasKey(sc => new { sc.ChuxeId, sc.BanglaiId });
             //---huy
+            //Nhu
+
+            modelBuilder.Entity<TinhTrangDuong>()
+           .HasRequired<KhuVuc>(s => s.KhuVuc)
+           .WithMany(g => g.TinhTrangDuongs)
+           .HasForeignKey<int?>(s => s.KhuVuc_Id);
         }
     }
 }
