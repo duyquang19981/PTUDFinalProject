@@ -269,7 +269,6 @@
                 id_ele =  $(this).parents("tr").children(':first-child').children(':first-child');
                 id = id_ele.val();
             }
-            
             if(window.confirm(`Delete this record? (ID=${id})`)){
                 //DELETE
                 axios({

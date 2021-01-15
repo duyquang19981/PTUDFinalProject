@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
 namespace WebAPI.Controllers
 {
     public class DenGT_ThayDoiController : ApiController
@@ -35,7 +36,7 @@ namespace WebAPI.Controllers
         //POST: api/DenGT_ThayDoi
         public IHttpActionResult Post(DenGT_ThayDoi denGT_ThayDoi)
         {
-
+            DateTime today = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -50,7 +51,7 @@ namespace WebAPI.Controllers
                     Vang_TD = denGT_ThayDoi.Vang_TD,
                     Xanh_TD = denGT_ThayDoi.Xanh_TD,
                     TuDong = denGT_ThayDoi.TuDong,
-                    ThoiGianThucHien = new DateTime(),
+                    ThoiGianThucHien = denGT_ThayDoi.ThoiGianThucHien,
                     DenGiaoThong_Id = denGT_ThayDoi.DenGiaoThong_Id,
                     NguoiQuanLyGT_Id = denGT_ThayDoi.NguoiQuanLyGT_Id,
                 });

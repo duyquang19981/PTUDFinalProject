@@ -18,7 +18,7 @@ namespace DataRepository.Models
         public int Vang_TD { get; set; }
         public int Xanh_TD { get; set; }
         public int TuDong { get; set; }
-        public DateTime ThoiGianThucHien { get; set; }
+        public string ThoiGianThucHien { get; set; }
         public int DenGiaoThong_Id { get; set; }
         public virtual DenGiaoThong DenGiaoThong { get; set; }
         public int NguoiQuanLyGT_Id { get; set; }

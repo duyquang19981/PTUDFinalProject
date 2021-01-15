@@ -47,7 +47,7 @@
                             <td>${data_DenGT_ThayDoi[i].ThoiGianThucHien}</td>
                             <td>${data_DenGT_ThayDoi[i].DenGiaoThong_Id}</td>
                             <td>${data_DenGT_ThayDoi[i].NguoiQuanLyGT_Id}</td>
-                           
+                            
                         </tr>`;
             $("tbody").append(row);
         }

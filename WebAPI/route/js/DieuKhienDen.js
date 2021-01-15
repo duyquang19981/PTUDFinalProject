@@ -1,6 +1,7 @@
 const port = 44399;
 const url_DenGiaoThong = `https://localhost:${port}/api/DenGiaoThong`;
 const url_KhuVuc = `https://localhost:${port}/api/KhuVuc`;
+const url_DenGT_ThayDoi = `https://localhost:${port}/api/DenGT_ThayDoi`;
 var urlParams;
 var page = prevPage = nextPage = totalPage = greatestID =  1;
 
@@ -98,6 +99,7 @@ $(document).ready( async function(){
         alert('Nhập dữ liệu thời gian');
         return;
       }
+      //cap nhat den
       axios({
           method: 'PUT',
           url: url_DenGiaoThong + `/${Id_Den}`,
@@ -113,14 +115,56 @@ $(document).ready( async function(){
       }) .then(function (response) {
           if (response.status === 200) {
             console.log("Update Success");
-            return window.location.reload();
-            
+            // var data = {
+            //   //KhuVuc_Id: khuVuc_Id,
+            //   ThoiDiemThayDoi: 'None',
+            //   ThoiGianDoi :0,
+            //   Do_TD : Do,
+            //   Vang_TD : Vang,
+            //   Xanh_TD : Xanh,
+            //   TuDong : 0,
+            //   ThoiGianThucHien : new Date().toString(),
+            //   DenGiaoThong_Id : Id_Den,
+            //   NguoiQuanLyGT_Id : 1,
+
+            // };
+          //console.log('data :>> ', data);
           }
       })
       .catch(function (response) {
           console.log(response);
-        
+          alert(response);
       });
+         //them vao bang theo doi (DenGT_ThayDoi)
+        axios({
+          method: 'POST',
+          url: url_DenGT_ThayDoi ,
+          data:{
+              //KhuVuc_Id: khuVuc_Id,
+              ThoiDiemThayDoi: 'None',
+              ThoiGianDoi :0,
+              Do_TD : Do,
+              Vang_TD : Vang,
+              Xanh_TD : Xanh,
+              TuDong : 0,
+              ThoiGianThucHien : new Date().toString(),
+              DenGiaoThong_Id : Id_Den,
+              NguoiQuanLyGT_Id : 1,
+
+          }, 
+          
+      }) .then(function (response) {
+          if (response.status === 200) {
+            console.log("Push to DenDT_THayDoi Success");
+            return window.location.reload();
+
+          }
+      })
+      .catch(function (response) {
+          console.log(response);
+          alert(response);
+        
+      });   
     });
 });
 
