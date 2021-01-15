@@ -17,8 +17,16 @@ namespace ChucNang10
         }
 
         public virtual DbSet<Chuxe> Chuxes { get; set; }
+<<<<<<< Updated upstream
         public virtual DbSet<Xe> Xes { get; set; }
         public virtual DbSet<LuatGiaoThong> LuatGiaoThongs { get; set; }
 
+=======
+        public virtual DbSet<XeViPham> XeViPhams { get; set; }
+       
+        
+>>>>>>> Stashed changes
     }
+
+   
 }
