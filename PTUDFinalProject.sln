@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataRepository", "DataRepos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{FBADC204-24F1-4402-919C-D21975CE6465}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDenGiaoThong", "UnitTestDenGiaoThong\UnitTestDenGiaoThong.csproj", "{B3CABF48-1455-415A-9570-1D504EED8241}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FBADC204-24F1-4402-919C-D21975CE6465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBADC204-24F1-4402-919C-D21975CE6465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBADC204-24F1-4402-919C-D21975CE6465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3CABF48-1455-415A-9570-1D504EED8241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3CABF48-1455-415A-9570-1D504EED8241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3CABF48-1455-415A-9570-1D504EED8241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3CABF48-1455-415A-9570-1D504EED8241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

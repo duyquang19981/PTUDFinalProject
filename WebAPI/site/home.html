@@ -13,8 +13,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="site/route/js/login.js"></script>
-<script src="site/route/js/function.js"></script>
 <style>
 body {
     color: #404E67;
@@ -165,9 +163,6 @@ table.table td .add {
 .border{
     border-radius: 50px;
 }
-.login-form{
-    margin-top: 100px;
-}
 </style>
 
 </head>
@@ -178,25 +173,38 @@ table.table td .add {
             HỆ THỐNG QUẢN LÝ GIAO THÔNG VẬN TẢI
         </div>
     </header>
-    <div class="container d-flex justify-content-center">
-        <div class="login-form">
-            <h3>Đăng nhập</h3>
-            <form method="" onsubmit="return false">
-                <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input id="username" type="text" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required >
-                
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input id="password" type="password" value="" class="form-control" id="exampleInputPassword1" required>
-                </div>
-    
-                <button id="login-btn" type="submit" class="btn btn-info">Đăng nhập</button>
-                </form>
-        </div>
+    <div class="container content">
+        <div style="font-size: 35px ; font-weight: 500;margin-bottom: 20px;">CHỨC NĂNG:</div>
         
+        
+        <div class="row function-row">
+            <a href="route/dieukhiengiaothong.html">
+                <div class="function">
+                    <img src="route/img/traficlight.png" alt="hinh-anh" class="func-img border">
+                    <span class = "func-name">ĐIỀU KHIỂN GIAO THÔNG</span> 
+                </div>
+            </a>
+        </div>
     </div>      
- 
+    <div class="container content">
+        <div style="font-size: 35px ; font-weight: 500;margin-bottom: 20px;">QUẢN LÍ DỮ LIỆU:</div>
+        
+        <div class="row function-row">
+            <a href="route/quanlydengiaothong.html">
+                <div class="function">
+                    <img src="route/img/contract.png" alt="hinh-anh" class="func-img">
+                    <span class = "func-name">QUẢN LÝ ĐÈN GIAO THÔNG</span> 
+                </div>
+            </a>
+            <a href="route/quanlygiaotac.html">
+                <div class="function">
+                    <img src="route/img/contract.png" alt="hinh-anh" class="func-img">
+                    <span class = "func-name">QUẢN LÝ GIAO TÁC </span> 
+                </div>
+            </a>
+        </div>
+  
+        
+    </div> 
 </body>
 </html>

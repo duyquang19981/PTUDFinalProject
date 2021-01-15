@@ -121,6 +121,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="site\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataRepository\DataRepository.csproj">

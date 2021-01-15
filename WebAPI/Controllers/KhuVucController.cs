@@ -11,6 +11,14 @@ namespace WebAPI.Controllers
 {
     public class KhuVucController : ApiController
     {
+        public KhuVucController(KhuVuc @object)
+        {
+        }
+
+        public KhuVucController()
+        {
+        }
+
         // GET: api/KhuVuc
         public IEnumerable<KhuVuc> Get()
         {
@@ -79,22 +87,22 @@ namespace WebAPI.Controllers
         }
 
         // DELETE: api/KhuVuc/5
-        //public IHttpActionResult Delete(int id)
-        //{
-        //    if (id <= 0)
-        //        return BadRequest("Not a valid student id");
+        public IHttpActionResult Delete(int id)
+        {
+            if (id <= 0)
+                return BadRequest("Not a valid student id");
 
-        //    using (var ctx = new GTVTContext())
-        //    {
-        //        var KhuVuc = ctx.KhuVucs
-        //            .Where(s => s.Id == id)
-        //            .FirstOrDefault();
+            using (var ctx = new GTVTContext())
+            {
+                var KhuVuc = ctx.KhuVucs
+                    .Where(s => s.Id == id)
+                    .FirstOrDefault();
 
-        //        ctx.Entry(KhuVuc).State = System.Data.Entity.EntityState.Deleted;
-        //        ctx.SaveChanges();
-        //    }
+                ctx.Entry(KhuVuc).State = System.Data.Entity.EntityState.Deleted;
+                ctx.SaveChanges();
+            }
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
     }
 }
