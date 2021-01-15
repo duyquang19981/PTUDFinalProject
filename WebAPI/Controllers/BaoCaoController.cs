@@ -47,6 +47,19 @@ namespace WebAPI.Controllers
             }
             return Ok();
         }
+        [Route("api/{idBaoCao}/details")]
+        [HttpGet]
+        public IEnumerable<LuatGiaoThong> GetDSViPham(int idBaoCao)
+        {
+            GTVTContext context = new GTVTContext();
+            var listLuatViPham = (from l in context.LuatGiaoThongs
+                                  join vp in context.ViPhamLuatGTs on l.Id equals vp.Id_LuatGiaoThong
+                                  where vp.Id_BaoCao == idBaoCao
+                                  select l
+                                  ).ToList();
+
+            return listLuatViPham;
+        }
         //public HttpResponseMessage Post([FromBody]BaoCao bcao)
         //{
         //    try

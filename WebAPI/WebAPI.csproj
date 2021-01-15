@@ -102,6 +102,7 @@
     <Compile Include="Controllers\LuatGiaoThongController.cs" />
     <Compile Include="Controllers\NguoiQuanLyGTController.cs" />
     <Compile Include="Controllers\TinhTrangDuongController.cs" />
+    <Compile Include="Controllers\ViPhamController.cs" />
     <Compile Include="Controllers\XeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

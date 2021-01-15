@@ -65,6 +65,7 @@
     <Compile Include="Models\TinhTrangDuong.cs" />
     <Compile Include="Models\ViPhamLuatGT.cs" />
     <Compile Include="Models\Xe.cs" />
+    <Compile Include="Models\XeViPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
