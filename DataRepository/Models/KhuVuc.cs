@@ -1,4 +1,5 @@
 ﻿using DataRepository;
+using DataRepository.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,5 +17,7 @@ namespace PTUDFinalProject.Models
         public int Id { get; set; }
         public string TenKhuVuc { get; set; }
         public virtual ICollection<DenGiaoThong> DenGiaoThongs { get; set; } = new HashSet<DenGiaoThong>();
+        public virtual ICollection<TinhTrangDuong> KhuVucs { get; set; } = new HashSet<TinhTrangDuong>();
+
     }
 }
