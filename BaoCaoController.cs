@@ -12,6 +12,21 @@ namespace WebAPI.Controllers
 {
     public class BaoCaoController : ApiController
     {
+            BaoCao dataRepository;
+        public BaoCaoController(BaoCao data)
+        {
+            dataRepository = data;
+        }
+
+        List<BaoCao> baoCaos = new List<BaoCao>();
+        public BaoCaoController() { }
+
+        public BaoCaoController(List<BaoCao> baoCaos)
+        {
+            this.baoCaos = baoCaos;
+        }
+        
+        
         //GET: api/BaoCao
         public IEnumerable<BaoCao> Get()
         {
