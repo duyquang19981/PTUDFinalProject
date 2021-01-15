@@ -85,7 +85,7 @@ $(document).ready( async function(){
     
     var TenKhuVuc =  data_KhuVuc_showing.TenKhuVuc;
     console.log('TenKhuVuc :>> ', TenKhuVuc);
-    $('.map-wrap').css('background-image', `url('./img/${TenKhuVuc}.png')`);
+    // $('.map-wrap').css('background-image', `url('./img/Quận 1.png')`);
     
     //
     $(document).on("click", "#search", function(){

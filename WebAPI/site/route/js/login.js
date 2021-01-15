@@ -14,7 +14,7 @@ $(document).ready( async function(){
     const password = $('#password')[0].value;
     
     if(username===nguoiquanly.Username && password===nguoiquanly.Password){
-      confirm("Đăng nhập thành công!123");
+      confirm("Đăng nhập thành công!");
       window.location.replace(`site/home.html`);
     }
     else{
