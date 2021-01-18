@@ -1,0 +1,12 @@
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\DataRepository.dll.config
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\DataRepository.dll
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\DataRepository.pdb
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\EntityFramework.dll
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\EntityFramework.xml
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\obj\Debug\DataRepository.csprojAssemblyReference.cache
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\obj\Debug\DataRepository.csproj.CoreCompileInputs.cache
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\obj\Debug\DataRepository.csproj.CopyComplete
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\obj\Debug\DataRepository.dll
+C:\Users\DUYQUANG\Downloads\PTUDFinalProject-master (3)\newer\PTUDFinalProject\DataRepository\obj\Debug\DataRepository.pdb
